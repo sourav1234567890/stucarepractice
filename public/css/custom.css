@@ -1,0 +1,22 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+.imageuser{
+	border-radius: 50%;
+    width: 3%;
+    height: 6%;
+}
+.myuserpic{
+border-radius: 50%;
+width: 50%;
+height: 50%;	
+}
+
+#namenew{
+	margin-top: 25px;
+}
