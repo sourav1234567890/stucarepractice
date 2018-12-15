@@ -24,7 +24,7 @@ $(document).ready(function(){
     $('#images').parent().find('.error_message').html('');
     $('#images').css('border','1px solid grey');
     /*end*/
-    /*Select sum(salary) from table_name where month in (select max(month) from table_name group by empid)*/
+    /**/
 
 		$.ajaxSetup({
     	headers: {
