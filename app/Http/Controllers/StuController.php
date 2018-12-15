@@ -114,11 +114,18 @@ class StuController extends Controller
                 $imgname = uniqid().$filename;
                 $destinationPath = public_path('/image/');
                 $file->move($destinationPath,$imgname);
+                if($alldata['department']==1){
+                    $department="cse";
+                }
+                if($alldata['department']==2){
+                    $department="electrical";
+                }
+
                 $postdata=array(
                     'name'=>$alldata['name'],
                     'dob'=>$alldata['date_of_birth'],
                     'agecount'=>$alldata['agecount'],
-                    'department'=>$alldata['department'],
+                    'department'=>$department,
                     'designation'=>$alldata['designation'],
                     'salary'=>$alldata['salarynew'],
                     'image'=>$imgname,
