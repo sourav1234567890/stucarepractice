@@ -1,6 +1,31 @@
 $(document).ready(function(){
 	/*code add*/
 	$(document).on("click",".createing",function(){
+    /*code for validation*/
+    $('#username').parent().find('.error_message').addClass('hide');
+    $('#username').parent().find('.error_message').html('');
+    $('#username').css('border','1px solid grey');
+    $('#datepicker').parent().find('.error_message').addClass('hide');
+    $('#datepicker').parent().find('.error_message').html('');
+    $('#datepicker').css('border','1px solid grey');
+    $('#agecountnew').parent().find('.error_message').addClass('hide');
+    $('#agecountnew').parent().find('.error_message').html('');
+    $('#agecountnew').css('border','1px solid grey');
+    $('#departmentnew').parent().find('.error_message').addClass('hide');
+    $('#departmentnew').parent().find('.error_message').html('');
+    $('#departmentnew').css('border','1px solid grey');
+    $('#designationnw').parent().find('.error_message').addClass('hide');
+    $('#designationnw').parent().find('.error_message').html('');
+    $('#designationnw').css('border','1px solid grey');
+    $('#salary').parent().find('.error_message').addClass('hide');
+    $('#salary').parent().find('.error_message').html('');
+    $('#salary').css('border','1px solid grey');
+    $('#images').parent().find('.error_message').addClass('hide');
+    $('#images').parent().find('.error_message').html('');
+    $('#images').css('border','1px solid grey');
+    /*end*/
+    /*Select sum(salary) from table_name where month in (select max(month) from table_name group by empid)*/
+
 		$.ajaxSetup({
     	headers: {
      	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -9,7 +34,7 @@ $(document).ready(function(){
    		var formdata = new FormData($('#alldata')[0]);
    		//var formdata= $("#alldata").serialize();
    		jQuery.ajax({
-      	url: 'page',
+      	url: '',
       	data:formdata,
       	type:"POST",
       	cache:false,
@@ -24,6 +49,7 @@ $(document).ready(function(){
           $('#username').parent().find('.error_message').html('').html(value);
           $('#username').css('border','1px solid red');
           }
+          
           if(key == 'date_of_birth'){
             $('#datepicker').parent().find('.error_message').removeClass('hide');
             $('#datepicker').parent().find('.error_message').html('').html(value);
@@ -75,9 +101,9 @@ $(document).ready(function(){
         if(response.success==1){
           var baseurl=window.location.origin;
           var str="";
-           str+="<table style='width:100%'><tr><th>name</th><th>image</th><th>designation</th><th>Age</th><th>salary</th></tr>"
+           str+="<table style='width:100%'><tr><th>name</th><th>image</th><th>department</th><th>designation</th><th>Age</th><th>salary</th></tr>"
           $.each(response.data, function (index, value) {
-             str+="<tr><td>"+value.name+"</td><td><img class='imageuser' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></td><td>"+value.designation+"</td><td>"+value.agecount+"</td><td>"+value.salary+"</td></tr>";
+             str+="<tr><td>"+value.name+"</td><td><img class='imageuser' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></td><td>"+value.department+"</td><td>"+value.designation+"</td><td>"+value.agecount+"</td><td>"+value.salary+"</td></tr>";
           //console.log(value);
         
 });            
@@ -154,7 +180,7 @@ $(document).on('blur',"#namenew",function(){
           var baseurl=window.location.origin;
           $.each(response.data, function (index, value) {
             var searchdata="";
-          searchdata+="<div><label>name:</label><span>"+value.name+"</span></div><div><label>dob:</label><span>"+value.dob+"</span></div><div><label>age:</label><span>"+value.agecount+"</span></div></div><label>designation:</label><span>"+value.designation+"</span><div><label>salary:</label><span>"+value.salary+"</span><div><label>image:</label><span><img class='myuserpic' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></span></div>";
+          searchdata+="<div><label>name:</label><span>"+value.name+"</span></div><div><label>dob:</label><span>"+value.dob+"</span></div><div><label>age:</label><span>"+value.agecount+"</span></div></div><label>designation:</label><span>"+value.designation+"</span><div><label>department:</label><span>"+value.department+"</span><div><div><label>salary:</label><span>"+value.salary+"</span><div><label>image:</label><span><img class='myuserpic' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></span></div>";
           $(".usersearch").append(searchdata);
           });
           

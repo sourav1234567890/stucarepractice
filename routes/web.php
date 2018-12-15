@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-Route::resource('page', 'StuController');
+});*/
+Route::resource('/', 'StuController');
 Route::post('department', 'StuController@department');
 Route::post('fetchalldata', 'StuController@fetchdata');
-Route::post('namesearch', 'StuController@namesearch');
+Route::post('namesearch', 'StuController@namesearch');  
 
 

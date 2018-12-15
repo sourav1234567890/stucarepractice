@@ -20,3 +20,6 @@ height: 5%;
 #namenew{
 	margin-top: 25px;
 }
+.form-control{
+	border: 1px solid grey ;
+}
