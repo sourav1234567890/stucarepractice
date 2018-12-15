@@ -75,9 +75,9 @@ $(document).ready(function(){
         if(response.success==1){
           var baseurl=window.location.origin;
           var str="";
-           str+="<table style='width:100%'><tr><th>name</th><th>image</th><th>department</th><th>designation</th><th>Age</th><th>salary</th></tr>"
+           str+="<table style='width:100%'><tr><th>name</th><th>image</th><th>designation</th><th>Age</th><th>salary</th></tr>"
           $.each(response.data, function (index, value) {
-             str+="<tr><td>"+value.name+"</td><td><img class='imageuser' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></td><td>"+value.designation+"</td><td>"+value.agecount+"</td><td>"+value.salary+"</td><td>hfgfg</td></tr>";
+             str+="<tr><td>"+value.name+"</td><td><img class='imageuser' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></td><td>"+value.designation+"</td><td>"+value.agecount+"</td><td>"+value.salary+"</td></tr>";
           //console.log(value);
         
 });            
@@ -135,7 +135,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 $(document).on('blur',"#namenew",function(){
   var name=$(this).val();
-  alert(name);
+  
   //var name=$("#namenew").val();
   if(name!=""){
     $.ajaxSetup({
@@ -154,7 +154,7 @@ $(document).on('blur',"#namenew",function(){
           var baseurl=window.location.origin;
           $.each(response.data, function (index, value) {
             var searchdata="";
-          searchdata+="<div><label>name:</label><span>"+value.name+"</span></div><div><label>dob:</label><span>"+value.dob+"</span></div><div><label>age:</label><span>"+value.agecount+"</span></div></div><div><label>department:</label><span>"+value.department+"</span><div><label>designation:</label><span>"+value.designation+"</span><div><label>salary:</label><span>"+value.salary+"</span><div><label>image:</label><span><img class='myuserpic' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></span></div>";
+          searchdata+="<div><label>name:</label><span>"+value.name+"</span></div><div><label>dob:</label><span>"+value.dob+"</span></div><div><label>age:</label><span>"+value.agecount+"</span></div></div><label>designation:</label><span>"+value.designation+"</span><div><label>salary:</label><span>"+value.salary+"</span><div><label>image:</label><span><img class='myuserpic' src='"+baseurl+"/stucarepractice/public/image/"+value.image+"'></span></div>";
           $(".usersearch").append(searchdata);
           });
           
